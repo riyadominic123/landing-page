@@ -135,6 +135,14 @@
 
         <form id="upload-form">
             <div class="form-group">
+                <label>Image Title</label>
+                <input type="text" id="image-title" placeholder="Project Name" required>
+            </div>
+            <div class="form-group">
+                <label>Work Date</label>
+                <input type="date" id="work-date" required>
+            </div>
+            <div class="form-group">
                 <label>Select Image</label>
                 <input type="file" id="image-file" accept="image/*" required>
             </div>
@@ -182,6 +190,8 @@
         document.getElementById('upload-form').addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            const titleInput = document.getElementById('image-title');
+            const dateInput = document.getElementById('work-date');
             const fileInput = document.getElementById('image-file');
             const descInput = document.getElementById('image-desc');
             const submitBtn = e.target.querySelector('button');
@@ -201,12 +211,16 @@
                         const base64Image = reader.result;
 
                         await addDoc(collection(db, "galleryItems"), {
+                            title: titleInput.value,
+                            workDate: dateInput.value,
                             imageUrl: base64Image,
                             description: descInput.value,
                             createdAt: serverTimestamp()
                         });
 
                         alert('Uploaded safely to Cloud Database!');
+                        titleInput.value = '';
+                        dateInput.value = '';
                         descInput.value = '';
                         fileInput.value = '';
                         loadPreview();
