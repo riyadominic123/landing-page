@@ -220,6 +220,43 @@ nav ul li a:hover {
 }
 
 /* Services */
+/* Hero Marquee */
+.hero-marquee {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  padding: 1rem 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-content span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  color: rgba(238, 224, 190, 0.2);
+  text-transform: uppercase;
+  padding-right: 4rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 #services {
   padding: 10rem 0;
   background-color: var(--dark);
