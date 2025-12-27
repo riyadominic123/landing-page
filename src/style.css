@@ -334,31 +334,65 @@ nav ul li a:hover {
   color: var(--primary);
 }
 
-
 /* Contact Section */
 #contact {
   padding: 10rem 0;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--dark);
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 1;
 }
 
 .contact-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  grid-template-columns: 1fr 1fr;
+  background: #EBE3D5;
+  /* Darker cream from image */
+  border-radius: 0;
+  /* Sharp corners like the image */
   overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  color: #020412;
+  position: relative;
+  z-index: 2;
+  min-height: 600px;
+  /* Original Large Height */
 }
 
 .contact-info {
   padding: 4rem;
-  background-color: var(--dark);
-  background: linear-gradient(rgba(2, 4, 18, 0.98), rgba(234, 88, 12, 0.2)), url('/images/industrial_electrical.webp');
-  background-size: cover;
+  /* Original Large Padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
 }
 
 .contact-info h2 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 6rem;
+  /* Original Large Heading */
+  line-height: 1;
+  margin-top: auto;
+  color: var(--primary);
+  opacity: 0.9;
+  letter-spacing: -2px;
+}
+
+.contact-info h2 span {
+  display: block;
+  color: inherit;
 }
 
 .contact-details {
@@ -379,6 +413,7 @@ nav ul li a:hover {
 
 .contact-form {
   padding: 4rem;
+  /* Original Large Padding */
 }
 
 .form-group {
@@ -389,21 +424,66 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
-  border-radius: 4px;
-  color: white;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  color: #020412;
   font-family: inherit;
+  font-size: 1.1rem;
   transition: var(--transition);
+  margin-bottom: 2rem;
+  /* Original Spacing */
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--primary);
+}
+
+.contact-form button {
+  background: transparent;
+  border: none;
+  color: #020412;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  transition: var(--transition);
+  padding: 1rem 0;
+}
+
+.contact-form button span {
+  color: var(--primary);
+  margin-right: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.contact-form button:hover {
+  transform: translateX(10px);
+  color: var(--primary);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  /* Original Large Gap */
+}
+
+@media (max-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 /* Footer */
@@ -513,7 +593,21 @@ footer {
   }
 
 
-  .contact-info,
+  .contact-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .contact-info {
+    padding: 3rem 2rem;
+  }
+
+  .contact-info h2 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
   .contact-form {
     padding: 2rem;
   }
