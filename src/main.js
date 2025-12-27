@@ -35,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .project-item, .about-content').forEach(el => {
+document.querySelectorAll('.service-card, .about-content').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'all 0.8s ease-out';
