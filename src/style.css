@@ -41,13 +41,10 @@ body {
 
 h1,
 h2,
-h3,
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  /* Bebas Neue usually only has 400 weight which is already very bold */
-  letter-spacing: 2px;
+h3 {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.5px;
 }
 
 span {
@@ -81,6 +78,7 @@ header .container {
 }
 
 .logo {
+  font-family: 'Saira', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
@@ -101,6 +99,7 @@ nav ul {
 }
 
 nav ul li a {
+  font-family: 'Saira', sans-serif;
   text-decoration: none;
   color: var(--light);
   font-weight: 500;
@@ -125,6 +124,7 @@ nav ul li a:hover {
 .btn-primary,
 .btn-secondary,
 .btn-outline {
+  font-family: 'Saira', sans-serif;
   padding: 0.8rem 2rem;
   border-radius: 4px;
   text-decoration: none;
@@ -200,9 +200,10 @@ nav ul li a:hover {
 }
 
 .hero-content h1 {
-  font-size: 4.5rem;
-  line-height: 1.1;
+  font-size: 4rem;
+  line-height: 1.2;
   margin-bottom: 2rem;
+  font-weight: 400;
   animation: slideInLeft 1s ease-out;
 }
 
@@ -588,6 +589,70 @@ footer {
   height: 2px;
   background-color: var(--light);
   transition: var(--transition);
+}
+
+/* WhatsApp Pocket */
+.whatsapp-sidebar {
+  position: fixed;
+  right: 0;
+  bottom: 2rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.whatsapp-pocket {
+  background-color: var(--primary);
+  /* Solid orange background */
+  width: 85px;
+  /* Increased from 65px */
+  height: 90px;
+  border-radius: 60px 0 0 60px;
+  /* Semi-circle sticking out */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 18px;
+  /* Increased from 10px */
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  transition: var(--transition);
+}
+
+.whatsapp-pocket:hover {
+  width: 95px;
+  filter: brightness(1.1);
+}
+
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #25D366;
+  /* WhatsApp Green */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  animation: float 3s ease-in-out infinite;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @media (max-width: 768px) {
