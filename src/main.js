@@ -15,6 +15,14 @@ if (menuToggle) {
     nav.classList.toggle('open');
     menuToggle.classList.toggle('active');
   });
+
+  // Close menu when a link is clicked
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuToggle.classList.remove('active');
+    });
+  });
 }
 
 // Simple reveal animation on scroll

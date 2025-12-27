@@ -231,7 +231,8 @@ nav ul li a:hover {
 
 /* Services */
 #services {
-  padding: 10rem 0;
+  padding: 8rem 0;
+  /* Reduced from 10rem for better balance */
   background-color: var(--dark);
   position: relative;
 }
@@ -294,7 +295,8 @@ nav ul li a:hover {
 
 /* About Section */
 #about {
-  padding: 10rem 0;
+  padding: 8rem 0;
+  /* Reduced from 10rem */
 }
 
 .about-flex {
@@ -361,7 +363,8 @@ nav ul li a:hover {
 
 /* Contact Section */
 #contact {
-  padding: 10rem 0;
+  padding: 8rem 0;
+  /* Reduced from 10rem */
   position: relative;
   overflow: hidden;
   background-color: var(--dark);
@@ -610,6 +613,11 @@ footer {
   transition: var(--transition);
 }
 
+header.scrolled .mobile-menu-toggle span {
+  background-color: #020412;
+  /* Dark color for visibility on cream bg */
+}
+
 /* WhatsApp Pocket */
 .whatsapp-sidebar {
   position: fixed;
@@ -693,15 +701,6 @@ footer {
   .hero-content p {
     font-size: 1rem;
     margin-bottom: 2rem;
-  }
-
-  .marquee-container {
-    height: 100px;
-    bottom: 20px;
-  }
-
-  .marquee-content span {
-    font-size: 6rem;
   }
 
   .about-flex {
