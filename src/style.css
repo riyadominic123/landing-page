@@ -87,8 +87,16 @@ header .container {
   transition: var(--transition);
 }
 
+.logo span {
+  color: #000;
+}
+
 header.scrolled .logo {
   color: #020412;
+}
+
+header.scrolled .logo span {
+  color: var(--primary);
 }
 
 nav ul {
@@ -375,21 +383,22 @@ nav ul li a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: #EBE3D5;
-  /* Darker cream from image */
   border-radius: 0;
-  /* Sharp corners like the image */
   overflow: hidden;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
   color: #020412;
   position: relative;
   z-index: 2;
-  min-height: 520px;
-  /* Original Large Height */
+  max-width: 900px;
+  /* Centered and smaller */
+  margin: 0 auto;
+  min-height: 380px;
+  /* Further reduced height */
 }
 
 .contact-info {
-  padding: 3rem;
-  /* Original Large Padding */
+  padding: 2rem;
+  /* Reduced from 3rem */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -397,13 +406,15 @@ nav ul li a:hover {
 }
 
 .contact-info h2 {
-  font-size: 5rem;
-  /* Original Large Heading */
-  line-height: 1;
+  font-family: 'Bebas Neue', cursive;
+  /* Reverted to old brand font */
+  font-size: 3.5rem;
+  /* Reduced for compact look */
+  line-height: 0.9;
   margin-top: auto;
   color: var(--primary);
   opacity: 0.9;
-  letter-spacing: -2px;
+  letter-spacing: 0;
 }
 
 .contact-info h2 span {
@@ -428,8 +439,8 @@ nav ul li a:hover {
 }
 
 .contact-form {
-  padding: 3rem;
-  /* Original Large Padding */
+  padding: 1.5rem 2rem;
+  /* Further reduced padding */
 }
 
 .form-group {
@@ -440,17 +451,19 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.6rem 0;
+  /* Further reduced padding */
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
   color: #020412;
   font-family: inherit;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  /* Reduced from 1.1rem */
   transition: var(--transition);
-  margin-bottom: 1.5rem;
-  /* Original Spacing */
+  margin-bottom: 0.8rem;
+  /* Further reduced margin */
 }
 
 input:focus,
@@ -472,9 +485,10 @@ textarea:focus {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  /* Reduced margin */
   transition: var(--transition);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .contact-form button span {
