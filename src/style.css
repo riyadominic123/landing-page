@@ -86,6 +86,17 @@ header .container {
   color: var(--light);
   letter-spacing: 2px;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  height: 45px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: white;
 }
 
 .logo span {
@@ -693,6 +704,15 @@ header.scrolled .mobile-menu-toggle span,
     padding: 0 1.5rem;
   }
 
+  .logo {
+    font-size: 1.4rem;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    height: 35px;
+  }
+
   section {
     padding: 6rem 0 !important;
   }
@@ -901,6 +921,15 @@ header.scrolled .mobile-menu-toggle span,
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2.2rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    gap: 6px;
+  }
+
+  .logo-icon {
+    height: 30px;
   }
 
   .hero-buttons {
