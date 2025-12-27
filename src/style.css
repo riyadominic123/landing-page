@@ -63,13 +63,15 @@ header {
   z-index: 1000;
   padding: 1.5rem 0;
   transition: var(--transition);
+  background: transparent;
 }
 
 header.scrolled {
-  background: var(--glass);
+  padding: 0.8rem 0;
+  background: #EBE3D5;
   backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 header .container {
@@ -84,6 +86,11 @@ header .container {
   text-decoration: none;
   color: var(--light);
   letter-spacing: 2px;
+  transition: var(--transition);
+}
+
+header.scrolled .logo {
+  color: #020412;
 }
 
 nav ul {
@@ -100,6 +107,14 @@ nav ul li a {
   font-size: 0.9rem;
   letter-spacing: 1px;
   transition: var(--transition);
+}
+
+header.scrolled nav ul li a {
+  color: #020412;
+}
+
+header.scrolled nav ul li a:hover {
+  color: var(--primary);
 }
 
 nav ul li a:hover {
@@ -367,12 +382,12 @@ nav ul li a:hover {
   color: #020412;
   position: relative;
   z-index: 2;
-  min-height: 600px;
+  min-height: 520px;
   /* Original Large Height */
 }
 
 .contact-info {
-  padding: 4rem;
+  padding: 3rem;
   /* Original Large Padding */
   display: flex;
   flex-direction: column;
@@ -381,7 +396,7 @@ nav ul li a:hover {
 }
 
 .contact-info h2 {
-  font-size: 6rem;
+  font-size: 5rem;
   /* Original Large Heading */
   line-height: 1;
   margin-top: auto;
@@ -412,7 +427,7 @@ nav ul li a:hover {
 }
 
 .contact-form {
-  padding: 4rem;
+  padding: 3rem;
   /* Original Large Padding */
 }
 
@@ -433,7 +448,7 @@ textarea {
   font-family: inherit;
   font-size: 1.1rem;
   transition: var(--transition);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   /* Original Spacing */
 }
 
