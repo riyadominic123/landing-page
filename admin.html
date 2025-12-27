@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | ATS Electrical Engineers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+    <style>
+        body.admin-body {
+            background: #f4f1ea;
+            color: #020412;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            font-family: 'Jost', sans-serif;
+        }
+
+        #login-section,
+        #admin-dashboard {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #admin-dashboard {
+            max-width: 800px;
+            display: none;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            color: #020412;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Jost', sans-serif;
+        }
+
+        button {
+            background: #020412;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #f97316;
+        }
+
+        .gallery-preview {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="admin-body">
+
+    <!-- Login Section -->
+    <div id="login-section">
+        <h2>Admin Login</h2>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="admin-pass" placeholder="Enter Password">
+        </div>
+        <button onclick="checkPassword()">Login</button>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard">
+        <h2>Gallery Management</h2>
+
+        <form id="upload-form">
+            <div class="form-group">
+                <label>Select Image</label>
+                <input type="file" id="image-file" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="image-desc" rows="3" placeholder="Work description..." required></textarea>
+            </div>
+            <button type="submit">Upload to Gallery</button>
+        </form>
+
+        <div class="gallery-preview" id="gallery-preview">
+            <!-- Items appear here -->
+        </div>
+
+        <button onclick="logout()" style="margin-top: 2rem; background: #666; width: 100%;">Logout</button>
+        <button onclick="window.location.href='index.html'"
+            style="margin-top: 1rem; background: #020412; color: white; width: 100%; border: 1px solid #ddd;">
+            🏠 Back to Home Site
+        </button>
+    </div>
+
+    <script type="module">
+        import { db } from './src/firebase.js';
+        import { collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp } from "firebase/firestore";
+
+        const PASSWORD = 'ats123';
+
+        window.checkPassword = function () {
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === PASSWORD) {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+                loadPreview();
+            } else {
+                alert('Wrong password!');
+            }
+        }
+
+        window.logout = function () {
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('admin-dashboard').style.display = 'none';
+            document.getElementById('admin-pass').value = '';
+        }
+
+        document.getElementById('upload-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('image-file');
+            const descInput = document.getElementById('image-desc');
+            const submitBtn = e.target.querySelector('button');
+
+            if (fileInput.files && fileInput.files[0]) {
+                try {
+                    submitBtn.innerText = 'Uploading...';
+                    submitBtn.disabled = true;
+
+                    const file = fileInput.files[0];
+
+                    // Convert to Base64
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+
+                    reader.onload = async () => {
+                        const base64Image = reader.result;
+
+                        await addDoc(collection(db, "galleryItems"), {
+                            imageUrl: base64Image,
+                            description: descInput.value,
+                            createdAt: serverTimestamp()
+                        });
+
+                        alert('Uploaded safely to Cloud Database!');
+                        descInput.value = '';
+                        fileInput.value = '';
+                        loadPreview();
+                        submitBtn.innerText = 'Upload to Gallery';
+                        submitBtn.disabled = false;
+                    };
+
+                } catch (error) {
+                    console.error("Upload failed:", error);
+                    alert("Upload failed. Make sure you set 'Test Mode' in Firestore Rules.");
+                    submitBtn.innerText = 'Upload to Gallery';
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+
+        async function loadPreview() {
+            const preview = document.getElementById('gallery-preview');
+            preview.innerHTML = '<p>Loading gallery items...</p>';
+
+            try {
+                const q = query(collection(db, "galleryItems"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+
+                if (querySnapshot.empty) {
+                    preview.innerHTML = '<p>No items found.</p>';
+                    return;
+                }
+
+                preview.innerHTML = '';
+                querySnapshot.forEach((record) => {
+                    const item = record.data();
+                    const div = document.createElement('div');
+                    div.className = 'preview-item';
+                    div.innerHTML = `
+                        <img src="${item.imageUrl}" alt="">
+                        <button class="delete-btn" onclick="deleteItem('${record.id}')">X</button>
+                    `;
+                    preview.appendChild(div);
+                });
+            } catch (error) {
+                console.error("Load failed:", error);
+                preview.innerHTML = '<p>Error loading items.</p>';
+            }
+        }
+
+        window.deleteItem = async function (docId) {
+            if (confirm('Delete this image from Global Gallery?')) {
+                try {
+                    await deleteDoc(doc(db, "galleryItems", docId));
+                    loadPreview();
+                    alert('Deleted successfully');
+                } catch (error) {
+                    console.error("Delete failed:", error);
+                    alert('Delete failed. Check console for details.');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

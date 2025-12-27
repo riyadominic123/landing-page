@@ -1,4 +1,8 @@
 import './style.css';
+import { initGallery } from './gallery.js';
+
+// Initialize Gallery 
+initGallery();
 
 // Navbar scroll effect
 const navbar = document.querySelector('#navbar');
@@ -47,7 +51,7 @@ if (menuToggle) {
   });
 }
 
-// Simple reveal animation on scroll
+// Reveal animation logic
 const observerOptions = {
   threshold: 0.1
 };
@@ -61,12 +65,22 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .about-content').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'all 0.8s ease-out';
-  observer.observe(el);
-});
+const initReveals = () => {
+  document.querySelectorAll('.service-card, .about-content, .reveal-item').forEach(el => {
+    if (!el.classList.contains('reveal')) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.8s ease-out';
+      observer.observe(el);
+    }
+  });
+};
+
+// Listen for gallery updates
+window.addEventListener('galleryReady', initReveals);
+
+// Initial call
+initReveals();
 
 // Add a style rule dynamically for the reveal class
 const style = document.createElement('style');
