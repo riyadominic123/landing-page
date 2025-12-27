@@ -12,20 +12,38 @@ window.addEventListener('scroll', () => {
 
 // Mobile menu toggle
 const menuToggle = document.querySelector('.mobile-menu-toggle');
+const menuClose = document.querySelector('.menu-close');
 const nav = document.querySelector('nav');
+
+const closeMenu = () => {
+  nav.classList.remove('open');
+  menuToggle.classList.remove('active');
+  document.body.classList.remove('menu-open');
+};
 
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
     menuToggle.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  if (menuClose) {
+    menuClose.addEventListener('click', closeMenu);
+  }
+
+  // Close menu when clicking backdrop
+  document.addEventListener('click', (e) => {
+    if (document.body.classList.contains('menu-open') &&
+      !nav.contains(e.target) &&
+      !menuToggle.contains(e.target)) {
+      closeMenu();
+    }
   });
 
   // Close menu when a link is clicked
   nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.classList.remove('active');
-    });
+    link.addEventListener('click', closeMenu);
   });
 }
 
