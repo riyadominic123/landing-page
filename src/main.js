@@ -10,13 +10,9 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Mobile menu toggle
-const menuToggle = document.querySelector('.mobile-menu-toggle');
-const nav = document.querySelector('nav');
-
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    nav.classList.toggle('open');
     menuToggle.classList.toggle('active');
   });
 }

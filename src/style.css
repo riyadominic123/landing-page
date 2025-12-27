@@ -677,12 +677,36 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 6rem 0 !important;
+  }
+
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .marquee-container {
+    height: 100px;
+    bottom: 20px;
+  }
+
+  .marquee-content span {
+    font-size: 6rem;
   }
 
   .about-flex {
     flex-direction: column;
+    gap: 3rem;
   }
 
   .about-image {
@@ -691,33 +715,123 @@ footer {
 
   .about-content {
     order: 1;
+    text-align: center;
   }
 
+  .features-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: left;
+    margin-top: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
   .contact-card {
     grid-template-columns: 1fr;
     min-height: auto;
+    margin: 0 1rem;
   }
 
   .contact-info {
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
   }
 
   .contact-info h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .contact-form {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Mobile Navigation Logic */
+  .mobile-menu-toggle {
+    display: flex;
   }
 
   nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #EBE3D5;
+    /* Match scrolled navbar color */
+    z-index: 999;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
   }
 
-  .mobile-menu-toggle {
-    display: flex;
+  nav.open {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  nav ul li a {
+    font-size: 1.5rem;
+    color: #020412 !important;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .whatsapp-sidebar {
+    bottom: 1.5rem;
+  }
+
+  .whatsapp-pocket {
+    width: 75px;
+    height: 70px;
+  }
+
+  .whatsapp-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-info h2 {
+    font-size: 3rem;
   }
 }
