@@ -605,7 +605,7 @@ footer {
   /* Solid orange background */
   width: 85px;
   /* Increased from 65px */
-  height: 90px;
+  height: 80px;
   border-radius: 60px 0 0 60px;
   /* Semi-circle sticking out */
   display: flex;
@@ -620,7 +620,7 @@ footer {
 
 .whatsapp-pocket:hover {
   width: 95px;
-  filter: brightness(1.1);
+  filter: brightness(1.0);
 }
 
 .whatsapp-icon {
@@ -636,6 +636,8 @@ footer {
   font-size: 1.8rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
+  margin-top: 6px;
+  /* Lowered as requested */
   animation: float 3s ease-in-out infinite;
 }
 
