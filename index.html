@@ -1,206 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATS Electrical Engineers | Premium Electrical Solutions</title>
-  <meta name="description"
-    content="Official website of ATS Electrical Engineers. Professional electrical wiring, maintenance, and smart home solutions. Trusted electricians for residential and industrial projects.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATS Electrical Engineers | Premium Eco-Friendly Solutions</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&family=Saira:wght@400;500;600;700&family=Jost:wght@100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jost:wght@700;800&family=Saira:wght@700&display=swap"
     rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-  <header id="navbar">
+  <header id="header">
     <div class="container">
       <a href="#" class="logo">
-        <img src="/images/logo.jpg" alt="ATS Logo" class="logo-icon">
-        ATS<span> ELECTRICAL ENGINEERS</span>
+        <img src="/images/ats_electrical_logo.webp" alt="ATS Electrical Logo" class="logo-icon">
+        ATS ELECTRICAL <span>ENGINEERS</span>
       </a>
       <nav>
-        <button class="menu-close" aria-label="Close menu">&times;</button>
         <ul>
           <li><a href="#hero">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact" class="btn-primary">Get a Quote</a></li>
         </ul>
       </nav>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a href="#contact" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Get a Quote</a>
     </div>
   </header>
 
-  <main>
-    <section id="hero">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Powering Your Vision With <span>Precision</span></h1>
-          <p>High-end electrical engineering and installation for modern homes and industries. Reliability you can
-            trust, quality you can see.</p>
-          <div class="hero-btns">
-            <a href="#contact" class="btn-primary">Free Quote</a>
-            <a href="#services" class="btn-secondary">Our Services</a>
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Sustainable <br>Energy Solutions</h1>
+      <p>Expert electrical engineering for a greener tomorrow. From smart home solar to industrial energy efficiency, we
+        power your vision with precision.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Free Quote</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Expertise</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-solar-panel"></i>
           </div>
+          <h3>Solar Integration</h3>
+          <p>Custom solar solutions for homes and businesses, maximizing efficiency and sustainability.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-charging-station"></i>
+          </div>
+          <h3>EV Infrastructure</h3>
+          <p>Professional installation of high-speed electric vehicle charging stations.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Energy Audits</h3>
+          <p>Comprehensive analysis to reduce waste and lower your carbon footprint.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Specialized <span>Services</span></h2>
-          <div class="underline"></div>
+  <section id="about">
+    <div class="container">
+      <div class="about-flex">
+        <div class="about-image">
+          <img src="/images/about_eco_team.png" alt="Our Eco Team">
         </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon-wrapper">
-              <div class="service-icon">⚡</div>
-            </div>
-            <h3>Residential Wiring</h3>
-            <p>Complete home wiring solutions with a focus on safety and modern aesthetics.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrapper">
-              <div class="service-icon">🔋</div>
-            </div>
-            <h3>Emergency Repair</h3>
-            <p>24/7 dedicated support for all your critical electrical emergencies.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrapper">
-              <div class="service-icon">☀️</div>
-            </div>
-            <h3>Solar Power Systems</h3>
-            <p>On-Grid and Off-Grid solar solutions, advanced inverters, and battery storage systems.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon-wrapper">
-              <div class="service-icon">🌱</div>
-            </div>
-            <h3>Green Energy Tech</h3>
-            <p>Solar Green Energy Technologists and Eco-Friendly renewable energy developers for a sustainable future.
-            </p>
-          </div>
+        <div class="about-content">
+          <h2>Engineering <br>for the Future</h2>
+          <p>With over 15 years of excellence, ATS Electrical Engineers is leading the transition to sustainable energy.
+            We believe in high-precision engineering that respects the environment.</p>
+          <ul class="features-list">
+            <li>Certified Eco-Engineers</li>
+            <li>High-Efficiency Components</li>
+            <li>24/7 Technical Support</li>
+            <li>Transparent Pricing</li>
+          </ul>
+          <a href="#contact" class="btn-outline" style="margin-top: 2rem;">Learn More</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about">
-      <div class="container">
-        <div class="about-flex">
-          <div class="about-image">
-            <img src="/images/residential_wiring.webp" alt="Professional Electrician Working"
-              id="about-img-placeholder">
-          </div>
-          <div class="about-content">
-            <h2>Committed to <span>Excellence</span></h2>
-            <p>With over 15 years of experience, ATS Electrical Engineers has been at the forefront of electrical
-              innovation. Our mission is to provide safe, efficient, and sustainable energy solutions for every client.
-            </p>
-            <ul class="features-list">
-              <li>Certified & Licensed Team</li>
-              <li>Sustainable Energy Focus</li>
-              <li>Advanced Diagnostic Tools</li>
-              <li>Transparent Pricing</li>
-            </ul>
-            <a href="#contact" class="btn-outline">Learn More About Us</a>
-          </div>
-        </div>
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Portfolio</h2>
+        <div class="underline"></div>
       </div>
-    </section>
-
-    <section id="gallery">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our <span>Work Gallery</span></h2>
-          <div class="underline"></div>
-        </div>
-        <div id="gallery-grid" class="gallery-grid">
-          <!-- Dynamic items from gallery.js -->
-        </div>
+      <div id="gallery-container" class="gallery-grid">
+        <!-- Data from JavaScript/Firebase -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-card">
-          <div class="contact-info">
-            <h2>Contact <span>Us</span></h2>
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h2>Let's Talk.</h2>
+          <p>Ready to start your sustainable energy journey? We're here to help.</p>
+          <div style="margin-top: 2rem; font-weight: 600;">
+            <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 (234) 567-890</p>
+            <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@atselectrical.com</p>
           </div>
-          <form class="contact-form">
-            <div class="form-group grid-2">
-              <input type="text" placeholder="First Name*" required>
-              <input type="text" placeholder="Last Name*" required>
+        </div>
+        <div class="contact-form">
+          <form id="quote-form">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name" required>
             </div>
             <div class="form-group">
-              <input type="text" placeholder="Company name*">
+              <input type="email" placeholder="Email Address" required>
             </div>
             <div class="form-group">
-              <input type="text" placeholder="Position*">
+              <textarea placeholder="Tell us about your project..." rows="4" required></textarea>
             </div>
-            <div class="form-group">
-              <input type="email" placeholder="Email*" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" placeholder="Phone">
-            </div>
-            <div class="form-group">
-              <textarea placeholder="Message" rows="2"></textarea>
-            </div>
-            <button type="submit"><span>●</span> SUBMIT</button>
+            <button type="submit">Send Message</button>
           </form>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
     <div class="container">
       <div class="footer-bottom">
         <div class="footer-logo-accent">
-          <img src="/images/logo.jpg" alt="ATS Logo" class="logo-icon"
-            style="height: 60px; width: 60px; margin-bottom: 1rem; border: none;">
+          <a href="#" class="logo">
+            ATS ELECTRICAL <span>ENGINEERS</span>
+          </a>
+          <p style="margin-top: 1rem; opacity: 0.6;">Leading the way in sustainable electrical engineering and
+            eco-friendly shop solutions.</p>
         </div>
-        <p>&copy; 2025 ATS Electrical Engineers. All rights reserved.</p>
-        <div class="footer-contact">
-          <p>MUTHALAKKODOM ROAD MANGATTUKAVALA</p>
-          <p>9995911991, 8138886111, 8075088299</p>
-          <p>atselectricals9995@gmail.com</p>
+        <div>
+          <h4 style="margin-bottom: 2rem;">Quick Links</h4>
+          <ul style="opacity: 0.7;">
+            <li style="margin-bottom: 0.5rem;"><a href="#services">Services</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="#about">About</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="#gallery">Portfolio</a></li>
+          </ul>
         </div>
-        <div class="social-links">
-          <!-- Social links removed as requested -->
+        <div>
+          <h4 style="margin-bottom: 2rem;">Follow Us</h4>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 ATS Electrical Engineers. All rights reserved. | Sustainable Energy for a Greener Tomorrow.
       </div>
     </div>
   </footer>
 
   <div class="whatsapp-sidebar">
-    <div class="whatsapp-pocket">
-      <a href="https://wa.me/919995911991" target="_blank" class="whatsapp-icon">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
+    <a href="https://wa.me/yournumber" class="whatsapp-icon" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
 
-  <!-- Lightbox Overlay -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
     <div class="lightbox-content">
-      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      <img src="" alt="" class="lightbox-img">
       <div class="lightbox-info">
-        <h3 id="lightbox-title"></h3>
-        <p id="lightbox-desc"></p>
+        <h3></h3>
+        <p></p>
       </div>
     </div>
   </div>
